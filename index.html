@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>The Nawabs From North — Royal Menu</title>
+<meta name="description" content="Curated Royal Cuisine from the Kitchens of the North. Jubilee Hills, Hyderabad.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;500;600&family=EB+Garamond:wght@400;500&display=swap');
+
+  :root {
+    --navy: #12123a;
+    --navy-light: #1a1a52;
+    --navy-card: #16163f;
+    --gold: #c9a84c;
+    --gold-light: #e2c47a;
+    --gold-dim: #8a6f2e;
+    --cream: #f5f0e8;
+    --cream-dim: #b8ae98;
+    --white: #ffffff;
+    --divider: rgba(201,168,76,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--navy);
+    color: var(--cream);
+    font-family: 'EB Garamond', Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    padding: 48px 24px 32px;
+    position: relative;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .logo-wrap {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold-dim);
+    padding: 6px;
+    background: var(--navy-card);
+  }
+
+  .logo-wrap img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .logo-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--navy-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+
+  .brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 6vw, 32px);
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 5px;
+    line-height: 1.2;
+  }
+
+  .brand-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold-dim);
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .brand-sub::before,
+  .brand-sub::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+
+  .tagline {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--cream-dim);
+    margin-top: 14px;
+    line-height: 1.6;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .location {
+    font-size: 11px;
+    color: var(--gold-dim);
+    margin-top: 10px;
+    letter-spacing: 1px;
+  }
+
+  /* ── GOLD ORNAMENT ── */
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px 0;
+    justify-content: center;
+  }
+
+  .ornament-line {
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim));
+  }
+
+  .ornament-line.right {
+    background: linear-gradient(90deg, var(--gold-dim), transparent);
+  }
+
+  .ornament-diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  /* ── NAV ── */
+  .nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    border-bottom: 1px solid var(--divider);
+    padding: 0;
+  }
+
+  .nav-scroll {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    padding: 0 16px;
+    scrollbar-width: none;
+  }
+
+  .nav-scroll::-webkit-scrollbar { display: none; }
+
+  .nav-btn {
+    background: none;
+    border: none;
+    color: var(--cream-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 14px 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.25s;
+    text-transform: uppercase;
+  }
+
+  .nav-btn.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── SECTION ── */
+  .section {
+    padding: 0 16px;
+  }
+
+  .section-header {
+    padding: 28px 0 16px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 4px;
+  }
+
+  .section-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(16px, 4vw, 20px);
+    color: var(--gold);
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+
+  .section-desc {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--cream-dim);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* ── DISH CARD ── */
+  .dish-card {
+    background: var(--navy-card);
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.2s;
+  }
+
+  .dish-card.signature {
+    border-color: rgba(201,168,76,0.4);
+    background: linear-gradient(135deg, #16163f 0%, #1c1c4a 100%);
+  }
+
+  .dish-card:active {
+    border-color: var(--gold-dim);
+  }
+
+  .dish-left { flex: 1; min-width: 0; }
+
+  .dish-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .dish-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .dish-desc {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--cream-dim);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .dish-price {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  /* ── AR BUTTON ── */
+  .ar-btn {
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    padding: 10px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.4;
+    transition: all 0.2s;
+    min-width: 58px;
+  }
+
+  .ar-btn:active {
+    background: rgba(201,168,76,0.15);
+    border-color: var(--gold);
+  }
+
+  .ar-btn-icon {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+
+  /* ── AR MODAL ── */
+  .ar-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(10,10,30,0.97);
+    flex-direction: column;
+  }
+
+  .ar-modal.open { display: flex; }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  .modal-close {
+    background: none;
+    border: 1px solid var(--divider);
+    color: var(--cream-dim);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  model-viewer {
+    width: 100%;
+    flex: 1;
+    background: transparent;
+    --poster-color: transparent;
+  }
+
+  .modal-footer {
+    padding: 16px 20px;
+    border-top: 1px solid var(--divider);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ar-launch {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 15px;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+  }
+
+  .ar-hint {
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--cream-dim);
+  }
+
+  .coming-soon-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    border: 1px solid var(--gold-dim);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+    opacity: 0.7;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 36px 24px 48px;
+    border-top: 1px solid var(--divider);
+    margin-top: 24px;
+  }
+
+  .footer-brand {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    margin-bottom: 8px;
+  }
+
+  .footer-addr {
+    font-size: 12px;
+    color: var(--cream-dim);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .footer-note {
+    margin-top: 16px;
+    font-size: 11px;
+    color: var(--gold-dim);
+    font-style: italic;
+  }
+
+  /* ── HIDDEN ── */
+  .hidden { display: none !important; }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+  /* ── DESKTOP ── */
+  @media (min-width: 600px) {
+    body { max-width: 480px; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.5); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-wrap">
+    <div class="logo-placeholder">N</div>
+  </div>
+  <div class="brand-name">THE NAWABS</div>
+  <div class="brand-sub">FROM NORTH</div>
+  <div class="tagline">Curated Royal Cuisine from the Kitchens of the North</div>
+  <div class="location">Journalist Colony, Jubilee Hills · Hyderabad</div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-scroll">
+    <button class="nav-btn active" onclick="filter('all',this)">All</button>
+    <button class="nav-btn" onclick="filter('signatures',this)">Signatures</button>
+    <button class="nav-btn" onclick="filter('punjab',this)">Punjab</button>
+    <button class="nav-btn" onclick="filter('vegetarian',this)">Vegetarian</button>
+    <button class="nav-btn" onclick="filter('gtr',this)">Grand Trunk</button>
+    <button class="nav-btn" onclick="filter('mutton',this)">Mutton</button>
+    <button class="nav-btn" onclick="filter('coastal',this)">Coastal</button>
+    <button class="nav-btn" onclick="filter('rice',this)">Rice</button>
+    <button class="nav-btn" onclick="filter('biryani',this)">Biryani</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 1 — NAWAB'S SIGNATURES
+══════════════════════════════════════ -->
+<div class="section" data-section="signatures">
+  <div class="section-header">
+    <div class="section-eyebrow">Chef's Masterpieces</div>
+    <div class="section-title">The Nawab's Signatures</div>
+  </div>
+
+  <div class="dish-card signature" data-cat="signatures">
+    <div class="dish-left">
+      <div class="dish-badge">★ Signature</div>
+      <div class="dish-name">Chicken Maharani</div>
+      <div class="dish-desc">Succulent chicken in caramelized onions, roasted cashews, cultured butter, fresh cream and a whisper of saffron.</div>
+      <div class="dish-price">₹449</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('chicken-maharani','Chicken Maharani')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="signatures">
+    <div class="dish-left">
+      <div class="dish-name">Punjabi Butter Chicken</div>
+      <div class="dish-desc">Charcoal-roasted tikka folded into a velvety tomato and butter sauce with fresh cream and kasuri methi.</div>
+      <div class="dish-price">₹399</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('butter-chicken','Punjabi Butter Chicken')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="signatures">
+    <div class="dish-left">
+      <div class="dish-name">Smoky Paneer Butter Masala</div>
+      <div class="dish-desc">Fresh cottage cheese in signature butter masala, delicately finished with live charcoal smoke.</div>
+      <div class="dish-price">₹299</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('smoky-paneer','Smoky Paneer Butter Masala')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card signature" data-cat="signatures">
+    <div class="dish-left">
+      <div class="dish-badge">★ Signature</div>
+      <div class="dish-name">Shahi Mutton Biryani</div>
+      <div class="dish-desc">Tender mutton and aged basmati layered with saffron, browned onions and royal spices, sealed under dum.</div>
+      <div class="dish-price">₹549</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('shahi-mutton-biryani','Shahi Mutton Biryani')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 2 — CURRIES OF PUNJAB
+══════════════════════════════════════ -->
+<div class="section" data-section="punjab">
+  <div class="section-header">
+    <div class="section-eyebrow">Bold, Comforting & Generous</div>
+    <div class="section-title">Curries of Punjab</div>
+    <div class="section-desc">"The flavours that made Punjab the culinary heart of North India."</div>
+  </div>
+
+  <div class="dish-card" data-cat="punjab">
+    <div class="dish-left">
+      <div class="dish-name">Dal Makhani</div>
+      <div class="dish-desc">Whole black lentils and kidney beans slow-cooked overnight with butter and cream until luxuriously rich.</div>
+      <div class="dish-price">₹249</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('dal-makhani','Dal Makhani')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="punjab">
+    <div class="dish-left">
+      <div class="dish-name">Panch Ratan Dal</div>
+      <div class="dish-desc">Five varieties of lentils gently simmered with clarified butter, roasted cumin and fragrant spices.</div>
+      <div class="dish-price">₹249</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('panch-ratan-dal','Panch Ratan Dal')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="punjab">
+    <div class="dish-left">
+      <div class="dish-name">Dal Fry / Dal Tadka</div>
+      <div class="dish-desc">Yellow lentils finished with roasted garlic, cumin and fresh coriander — or tempered with sizzling ghee.</div>
+      <div class="dish-price">₹229</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('dal-fry','Dal Fry / Dal Tadka')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="punjab">
+    <div class="dish-left">
+      <div class="dish-name">Punjabi Paneer Butter Masala</div>
+      <div class="dish-desc">Soft paneer in a rich tomato-butter gravy balanced with cream, cashew and fenugreek.</div>
+      <div class="dish-price">₹299</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('punjabi-paneer','Punjabi Paneer Butter Masala')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="punjab">
+    <div class="dish-left">
+      <div class="dish-name">Mixed Veg Kadai</div>
+      <div class="dish-desc">Garden vegetables tossed with freshly crushed coriander, peppers and house-ground kadai masala.</div>
+      <div class="dish-price">₹249</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('mixed-veg-kadai','Mixed Veg Kadai')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="punjab">
+    <div class="dish-left">
+      <div class="dish-name">Mushroom Masala</div>
+      <div class="dish-desc">Button mushrooms braised in a slow-cooked onion and tomato gravy infused with aromatic spices.</div>
+      <div class="dish-price">₹299</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('mushroom-masala','Mushroom Masala')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 3 — VEGETARIAN HERITAGE
+══════════════════════════════════════ -->
+<div class="section" data-section="vegetarian">
+  <div class="section-header">
+    <div class="section-eyebrow">Celebrating India's Finest</div>
+    <div class="section-title">Vegetarian Heritage</div>
+  </div>
+
+  <div class="dish-card" data-cat="vegetarian">
+    <div class="dish-left">
+      <div class="dish-name">Palak Paneer</div>
+      <div class="dish-desc">House-made paneer folded into silky spinach purée, finished with cream.</div>
+      <div class="dish-price">₹249</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('palak-paneer','Palak Paneer')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="vegetarian">
+    <div class="dish-left">
+      <div class="dish-name">Methi Chaman</div>
+      <div class="dish-desc">Paneer gently cooked with fresh fenugreek leaves in a delicate Kashmiri-inspired cream sauce.</div>
+      <div class="dish-price">₹249</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('methi-chaman','Methi Chaman')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="vegetarian">
+    <div class="dish-left">
+      <div class="dish-name">Lasooni Palak Tarkaar</div>
+      <div class="dish-desc">Fresh spinach and seasonal vegetables scented with roasted garlic.</div>
+      <div class="dish-price">₹249</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('lasooni-palak','Lasooni Palak Tarkaar')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="vegetarian">
+    <div class="dish-left">
+      <div class="dish-name">Veg Kolhapuri</div>
+      <div class="dish-desc">Seasonal vegetables in a bold Kolhapuri masala enriched with roasted coconut and warming spices.</div>
+      <div class="dish-price">₹299</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('veg-kolhapuri','Veg Kolhapuri')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 4 — GRAND TRUNK ROAD
+══════════════════════════════════════ -->
+<div class="section" data-section="gtr">
+  <div class="section-header">
+    <div class="section-eyebrow">Recipes of the Legendary Highway</div>
+    <div class="section-title">The Grand Trunk Road</div>
+    <div class="section-desc">"Inspired by the legendary highway that connected kingdoms, cultures and cuisines."</div>
+  </div>
+
+  <div class="dish-card signature" data-cat="gtr">
+    <div class="dish-left">
+      <div class="dish-badge">★ Signature</div>
+      <div class="dish-name">Champaran Chicken</div>
+      <div class="dish-desc">A rustic Bihari specialty slow-cooked in mustard oil with whole spices using traditional handi techniques.</div>
+      <div class="dish-price">₹449</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('champaran-chicken','Champaran Chicken')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="gtr">
+    <div class="dish-left">
+      <div class="dish-name">Highway Chicken Tikka Masala</div>
+      <div class="dish-desc">Chargrilled chicken tikka in a robust tomato gravy inspired by India's famous roadside dhabas.</div>
+      <div class="dish-price">₹399</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('highway-tikka','Highway Chicken Tikka Masala')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="gtr">
+    <div class="dish-left">
+      <div class="dish-name">Kadai Chicken</div>
+      <div class="dish-desc">Chicken tossed with onions, peppers and freshly ground kadai spices.</div>
+      <div class="dish-price">₹399</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('kadai-chicken','Kadai Chicken')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="gtr">
+    <div class="dish-left">
+      <div class="dish-name">Murgh Lazeez</div>
+      <div class="dish-desc">Tender chicken finished in a silky cashew and saffron gravy.</div>
+      <div class="dish-price">₹399</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('murgh-lazeez','Murgh Lazeez')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="gtr">
+    <div class="dish-left">
+      <div class="dish-name">Dawat Ka Murgh</div>
+      <div class="dish-desc">A festive royal chicken curry layered with aromatic spices, nuts and cream.</div>
+      <div class="dish-price">₹399</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('dawat-ka-murgh','Dawat Ka Murgh')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="gtr">
+    <div class="dish-left">
+      <div class="dish-name">Kosha Mangsho <span style="font-size:11px;color:var(--cream-dim)">(Bengal Style)</span></div>
+      <div class="dish-desc">Chicken slow-braised until beautifully caramelized, delivering deep, rich and intensely satisfying flavours.</div>
+      <div class="dish-price">₹449</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('kosha-mangsho','Kosha Mangsho')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 5 — ROYAL MUTTON
+══════════════════════════════════════ -->
+<div class="section" data-section="mutton">
+  <div class="section-header">
+    <div class="section-eyebrow">Slow Cooking at Its Finest</div>
+    <div class="section-title">The Royal Mutton Kitchen</div>
+  </div>
+
+  <div class="dish-card signature" data-cat="mutton">
+    <div class="dish-left">
+      <div class="dish-badge">★ Signature</div>
+      <div class="dish-name">Champaran Mutton</div>
+      <div class="dish-desc">Traditional handi-cooked goat meat from the culinary heart of Bihar.</div>
+      <div class="dish-price">₹599</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('champaran-mutton','Champaran Mutton')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="mutton">
+    <div class="dish-left">
+      <div class="dish-name">Bhuna Mutton</div>
+      <div class="dish-desc">Goat meat patiently roasted until every spice clings to each succulent morsel.</div>
+      <div class="dish-price">₹549</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('bhuna-mutton','Bhuna Mutton')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="mutton">
+    <div class="dish-left">
+      <div class="dish-name">Mutton Rogan Josh</div>
+      <div class="dish-desc">The celebrated Kashmiri classic — tender mutton in a fragrant yoghurt and Kashmiri chilli gravy.</div>
+      <div class="dish-price">₹499</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('rogan-josh','Mutton Rogan Josh')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card signature" data-cat="mutton">
+    <div class="dish-left">
+      <div class="dish-badge">★ Signature</div>
+      <div class="dish-name">Rara Gosht</div>
+      <div class="dish-desc">Tender mutton enriched with delicately spiced minced meat for remarkable richness.</div>
+      <div class="dish-price">₹599</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('rara-gosht','Rara Gosht')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="mutton">
+    <div class="dish-left">
+      <div class="dish-name">Kheema Masala</div>
+      <div class="dish-desc">Finely minced mutton slowly cooked with onions, tomatoes and warming whole spices.</div>
+      <div class="dish-price">₹549</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('kheema-masala','Kheema Masala')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 6 — COASTAL & EGG
+══════════════════════════════════════ -->
+<div class="section" data-section="coastal">
+  <div class="section-header">
+    <div class="section-eyebrow">Coastal Treasures & Farm Favourites</div>
+    <div class="section-title">From the Coast & Egg Specialities</div>
+  </div>
+
+  <div class="dish-card" data-cat="coastal">
+    <div class="dish-left">
+      <div class="dish-badge">🦐 Coastal</div>
+      <div class="dish-name">Prawns Curry</div>
+      <div class="dish-desc">Juicy prawns gently simmered in a delicately spiced coastal curry.</div>
+      <div class="dish-price">₹459</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('prawns-curry','Prawns Curry')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card signature" data-cat="coastal">
+    <div class="dish-left">
+      <div class="dish-badge">★ Signature</div>
+      <div class="dish-name">Daab Chingri</div>
+      <div class="dish-desc">A Bengali masterpiece — prawns cooked inside tender coconut with mustard, coconut milk and green chillies.</div>
+      <div class="dish-price">₹549</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('daab-chingri','Daab Chingri')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="coastal">
+    <div class="dish-left">
+      <div class="dish-badge">🦀 Coastal</div>
+      <div class="dish-name">Crab Masala</div>
+      <div class="dish-desc">Fresh crab slowly cooked in our house spice blend with roasted onions and tomatoes.</div>
+      <div class="dish-price">₹599</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('crab-masala','Crab Masala')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="coastal">
+    <div class="dish-left">
+      <div class="dish-badge">🥚 Egg</div>
+      <div class="dish-name">Egg Bhurji Masala</div>
+      <div class="dish-desc">Farm eggs scrambled with onions, tomatoes, green chillies and aromatic spices.</div>
+      <div class="dish-price">₹199</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('egg-bhurji','Egg Bhurji Masala')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="coastal">
+    <div class="dish-left">
+      <div class="dish-badge">🥚 Egg</div>
+      <div class="dish-name">Egg Kheema Masala</div>
+      <div class="dish-desc">Finely chopped boiled eggs folded into a robust North Indian kheema-style masala.</div>
+      <div class="dish-price">₹229</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('egg-kheema','Egg Kheema Masala')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="coastal">
+    <div class="dish-left">
+      <div class="dish-badge">🥚 Egg</div>
+      <div class="dish-name">Boiled Egg Masala</div>
+      <div class="dish-desc">Perfectly boiled eggs simmered in a rich onion and tomato gravy.</div>
+      <div class="dish-price">₹229</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('boiled-egg-masala','Boiled Egg Masala')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 7 — RICE
+══════════════════════════════════════ -->
+<div class="section" data-section="rice">
+  <div class="section-header">
+    <div class="section-eyebrow">Perfect Accompaniments</div>
+    <div class="section-title">Rice & Accompaniments</div>
+  </div>
+
+  <div class="dish-card" data-cat="rice">
+    <div class="dish-left">
+      <div class="dish-name">Steamed Basmati Rice</div>
+      <div class="dish-desc">Premium aged long-grain basmati, perfectly steamed.</div>
+      <div class="dish-price">₹149</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('steamed-rice','Steamed Basmati Rice')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="rice">
+    <div class="dish-left">
+      <div class="dish-name">Jeera Rice</div>
+      <div class="dish-desc">Fragrant basmati tossed with roasted cumin and clarified butter.</div>
+      <div class="dish-price">₹199</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('jeera-rice','Jeera Rice')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="rice">
+    <div class="dish-left">
+      <div class="dish-name">Ghee Rice</div>
+      <div class="dish-desc">Long-grain basmati infused with aromatic ghee and whole spices.</div>
+      <div class="dish-price">₹229</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('ghee-rice','Ghee Rice')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card" data-cat="rice">
+    <div class="dish-left">
+      <div class="dish-name">Dal Khichdi</div>
+      <div class="dish-desc">A comforting combination of rice and lentils finished with pure ghee.</div>
+      <div class="dish-price">₹249</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('dal-khichdi','Dal Khichdi')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 8 — BIRYANI
+══════════════════════════════════════ -->
+<div class="section" data-section="biryani">
+  <div class="section-header">
+    <div class="section-eyebrow">Layered with Saffron, Patience & Tradition</div>
+    <div class="section-title">Royal Dum Biryanis</div>
+  </div>
+
+  <div class="dish-card signature" data-cat="biryani">
+    <div class="dish-left">
+      <div class="dish-badge">★ Signature</div>
+      <div class="dish-name">Shahi Chicken Biryani</div>
+      <div class="dish-desc">Marinated chicken layered with fragrant basmati, saffron and caramelized onions, slow-cooked under dum.</div>
+      <div class="dish-price">₹449</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('shahi-chicken-biryani','Shahi Chicken Biryani')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+
+  <div class="dish-card signature" data-cat="biryani">
+    <div class="dish-left">
+      <div class="dish-badge">★ Signature</div>
+      <div class="dish-name">Shahi Mutton Biryani</div>
+      <div class="dish-desc">Tender mutton layered with premium basmati, saffron and royal spices, sealed under dum. A true celebration on a plate.</div>
+      <div class="dish-price">₹549</div>
+    </div>
+    <button class="ar-btn" onclick="openAR('shahi-mutton-biryani','Shahi Mutton Biryani')">
+      <span class="ar-btn-icon">◈</span>VIEW<br>IN AR
+    </button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line right"></div>
+  </div>
+  <div style="margin-top:20px">
+    <div class="footer-brand">THE NAWABS FROM NORTH</div>
+    <div class="footer-addr">
+      Ashwini Layout, Plot No. 39<br>
+      Journalist Colony, Jubilee Hills<br>
+      Hyderabad, Telangana 500110
+    </div>
+    <div class="footer-note">Every dish is prepared fresh to order using premium ingredients,<br>traditional techniques and recipes that honour India's rich culinary heritage.</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     AR MODAL
+══════════════════════════════════════ -->
+<div class="ar-modal" id="arModal">
+  <div class="modal-header">
+    <div class="modal-title" id="modalDishName">Loading...</div>
+    <button class="modal-close" onclick="closeAR()">✕</button>
+  </div>
+
+  <model-viewer
+    id="modelViewer"
+    alt="3D dish model"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    auto-rotate
+    auto-rotate-delay="500"
+    rotation-per-second="20deg"
+    shadow-intensity="0.8"
+    exposure="1.1"
+    style="background: var(--navy);"
+  ></model-viewer>
+
+  <div class="modal-footer">
+    <button class="ar-launch" id="arLaunchBtn" onclick="launchAR()">
+      ◈ &nbsp; PLACE ON TABLE — VIEW IN AR
+    </button>
+    <div class="ar-hint">Drag to rotate · Pinch to zoom · Tap above to place on your table</div>
+  </div>
+</div>
+
+<!-- Model Viewer Script — loaded async for speed -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<script>
+// ── MODEL MAP
+// Add your GLB file paths here as you create them
+const models = {
+  'chicken-maharani':       'models/chicken-maharani.glb',
+  'butter-chicken':         'models/butter-chicken.glb',
+  'smoky-paneer':           'models/smoky-paneer.glb',
+  'shahi-mutton-biryani':   'models/shahi-mutton-biryani.glb',
+  'dal-makhani':            'models/dal-makhani.glb',
+  'panch-ratan-dal':        'models/panch-ratan-dal.glb',
+  'dal-fry':                'models/dal-fry.glb',
+  'punjabi-paneer':         'models/punjabi-paneer.glb',
+  'mixed-veg-kadai':        'models/mixed-veg-kadai.glb',
+  'mushroom-masala':        'models/mushroom-masala.glb',
+  'palak-paneer':           'models/palak-paneer.glb',
+  'methi-chaman':           'models/methi-chaman.glb',
+  'lasooni-palak':          'models/lasooni-palak.glb',
+  'veg-kolhapuri':          'models/veg-kolhapuri.glb',
+  'champaran-chicken':      'models/champaran-chicken.glb',
+  'highway-tikka':          'models/highway-tikka.glb',
+  'kadai-chicken':          'models/kadai-chicken.glb',
+  'murgh-lazeez':           'models/murgh-lazeez.glb',
+  'dawat-ka-murgh':         'models/dawat-ka-murgh.glb',
+  'kosha-mangsho':          'models/kosha-mangsho.glb',
+  'champaran-mutton':       'models/champaran-mutton.glb',
+  'bhuna-mutton':           'models/bhuna-mutton.glb',
+  'rogan-josh':             'models/rogan-josh.glb',
+  'rara-gosht':             'models/rara-gosht.glb',
+  'kheema-masala':          'models/kheema-masala.glb',
+  'prawns-curry':           'models/prawns-curry.glb',
+  'daab-chingri':           'models/daab-chingri.glb',
+  'crab-masala':            'models/crab-masala.glb',
+  'egg-bhurji':             'models/egg-bhurji.glb',
+  'egg-kheema':             'models/egg-kheema.glb',
+  'boiled-egg-masala':      'models/boiled-egg-masala.glb',
+  'steamed-rice':           'models/steamed-rice.glb',
+  'jeera-rice':             'models/jeera-rice.glb',
+  'ghee-rice':              'models/ghee-rice.glb',
+  'dal-khichdi':            'models/dal-khichdi.glb',
+  'shahi-chicken-biryani':  'models/shahi-chicken-biryani.glb',
+};
+
+const mv = document.getElementById('modelViewer');
+const modal = document.getElementById('arModal');
+
+function openAR(id, name) {
+  document.getElementById('modalDishName').textContent = name;
+  const src = models[id];
+  if (src) {
+    mv.src = src;
+    document.getElementById('arLaunchBtn').style.opacity = '1';
+    document.getElementById('arLaunchBtn').disabled = false;
+  } else {
+    mv.src = '';
+    document.getElementById('arLaunchBtn').style.opacity = '0.4';
+    document.getElementById('arLaunchBtn').disabled = true;
+    document.getElementById('arLaunchBtn').textContent = '3D Model Coming Soon';
+  }
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAR() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  mv.src = '';
+}
+
+function launchAR() {
+  if (mv.canActivateAR) {
+    mv.activateAR();
+  } else {
+    alert('AR is supported on Android Chrome and iPhone Safari. Point your camera at a flat surface after launching.');
+  }
+}
+
+// ── FILTER
+function filter(cat, btn) {
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  document.querySelectorAll('.dish-card').forEach(card => {
+    card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+  });
+
+  document.querySelectorAll('.section').forEach(sec => {
+    const visible = sec.querySelectorAll('.dish-card:not(.hidden)').length;
+    sec.style.display = (cat !== 'all' && visible === 0) ? 'none' : '';
+  });
+}
+
+// ── CLOSE on back button
+window.addEventListener('popstate', closeAR);
+</script>
+
+</body>
+</html>
