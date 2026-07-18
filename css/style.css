@@ -1,0 +1,948 @@
+/* =====================================================
+   THE NAWABS FROM NORTH — MAIN STYLESHEET
+   Mobile-first: base styles = phone. Larger screens are
+   scaled UP in responsive.css using min-width media queries.
+   ===================================================== */
+
+/* -----------------------------------------------------
+   1. CSS VARIABLES (Design System)
+----------------------------------------------------- */
+:root {
+  /* Colors — matched to live site reference, boosted for contrast */
+  --royal-blue: #070C1A;        /* precise match to logo background */
+  --royal-blue-light: #12172E;  /* card background, slightly lighter */
+  --card-border: rgba(230, 190, 90, 0.3);
+  --gold: #E3B23C;              /* richer, more saturated gold */
+  --gold-light: #F5D373;
+  --lavender: #A6A9E8;          /* brighter periwinkle for inactive nav links */
+  --white: #FFFFFF;             /* dish names, pure white for max contrast */
+  --off-white: #F5F1E8;
+  --desc-text: #C2C4EE;         /* italic description text, brighter lavender-gray */
+  --text-dark: #1A1A1A;
+  --text-muted: #6b6b6b;
+
+  /* Fonts */
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* Spacing — smaller on mobile by default */
+  --section-padding: 60px 20px;
+  --max-width: 1200px;
+
+  /* Transitions */
+  --transition: 0.2s ease;
+
+  /* Minimum comfortable tap target (Apple/Google standard) */
+  --tap-target: 44px;
+}
+
+/* -----------------------------------------------------
+   2. RESET & BASE STYLES
+----------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* removes grey flash on tap, iOS/Android */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--off-white);
+  background-color: var(--royal-blue);
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-size: 15px; /* comfortable base size for phone screens */
+  /* Prevents content sitting under the iPhone notch/Dynamic Island or
+     the rounded corners on Android edge-to-edge screens */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* -----------------------------------------------------
+   3. BUTTONS
+   min-height ensures every button is easy to tap with a thumb
+----------------------------------------------------- */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-target);
+  padding: 14px 32px;
+  border-radius: 2px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-primary {
+  background-color: var(--gold);
+  color: var(--royal-blue);
+  font-weight: 600;
+}
+
+/* :active = instant feedback on tap (works on touch, unlike :hover) */
+.btn-primary:active {
+  background-color: var(--gold-light);
+  transform: scale(0.97);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+.btn-secondary:active {
+  background-color: var(--gold);
+  color: var(--royal-blue);
+}
+
+/* Hover effects only apply on devices that actually support hover (laptops/desktops) */
+@media (hover: hover) {
+  .btn-primary:hover {
+    background-color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+  .btn-secondary:hover {
+    background-color: var(--gold);
+    color: var(--royal-blue);
+  }
+}
+
+/* -----------------------------------------------------
+   4. NAVIGATION BAR (mobile default = collapsed hamburger)
+----------------------------------------------------- */
+.site-header {
+  width: 100%;
+  background-color: var(--gold);
+  padding-top: env(safe-area-inset-top); /* clears notch since header sits at very top of page */
+}
+
+.navbar {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 6px;
+  padding: 8px 16px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo img {
+  height: 40px;
+  width: 40px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background-color: var(--royal-blue); /* keeps logo's own backdrop matching page navy */
+  border: 1.5px solid var(--royal-blue);
+}
+
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.nav-logo-text .brand-main {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--royal-blue);
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.nav-logo-text .brand-sub {
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 500;
+  color: var(--royal-blue);
+  opacity: 0.75;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Nav links — always a horizontal row, no hamburger/slide-in panel needed */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  order: 3; /* wraps to its own row below the logo on narrow phones */
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  color: var(--royal-blue);
+  opacity: 0.75;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.nav-links a.active {
+  opacity: 1;
+  font-weight: 600;
+  border-bottom: 1.5px solid var(--royal-blue);
+}
+
+
+/* -----------------------------------------------------
+   5. HERO SECTION
+----------------------------------------------------- */
+.hero {
+  min-height: 100svh; /* svh = stable viewport height, avoids mobile browser URL-bar jump */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--royal-blue);
+  padding: 40px 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-logo {
+  max-width: 280px;
+  width: 70%;
+  height: auto;
+  margin: 0 auto 24px;
+}
+
+.hero-title {
+  color: var(--gold);
+  font-size: clamp(30px, 9vw, 64px);
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  text-shadow: 0 0 30px rgba(227, 178, 60, 0.25);
+}
+
+.hero-title span {
+  display: block;
+  color: var(--gold-light);
+}
+
+.hero-tagline {
+  color: var(--off-white);
+  font-size: clamp(14px, 3.5vw, 20px);
+  font-style: italic;
+  margin-bottom: 6px;
+  padding: 0 10px;
+}
+
+.hero-location {
+  color: var(--gold-light);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+/* Primary AR call-to-action — the main focus of the homepage */
+.btn-ar-menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 16px 44px;
+  background-color: var(--gold);
+  color: var(--royal-blue);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px var(--gold-light), 0 8px 30px rgba(227, 178, 60, 0.35);
+  transition: var(--transition);
+}
+
+.btn-ar-menu:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 0 1px var(--gold-light), 0 4px 16px rgba(227, 178, 60, 0.3);
+}
+
+@media (hover: hover) {
+  .btn-ar-menu:hover {
+    background-color: var(--gold-light);
+    box-shadow: 0 0 0 1px var(--gold-light), 0 10px 40px rgba(227, 178, 60, 0.5);
+    transform: translateY(-2px);
+  }
+}
+
+.hero-ar-subtext {
+  margin-top: 18px;
+}
+
+.hero-ar-subtext .eyebrow {
+  display: block;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.hero-ar-subtext .subline {
+  display: block;
+  color: var(--desc-text);
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* -----------------------------------------------------
+   6. BRAND INTRO SECTION
+----------------------------------------------------- */
+.brand-intro {
+  padding: var(--section-padding);
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.brand-intro h2 {
+  color: var(--gold);
+  font-size: clamp(24px, 6vw, 38px);
+  margin-bottom: 18px;
+}
+
+.brand-intro p {
+  color: var(--desc-text);
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+/* -----------------------------------------------------
+   7. CATEGORY FILTER BAR
+   Matches thenawabsfromnorth.com's horizontal scroll row:
+   All / Signatures / Punjab / Vegetarian / Grand Trunk / Mutton / Coastal / Rice / Biryani
+----------------------------------------------------- */
+.category-bar {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* hides scrollbar on Firefox */
+  background-color: var(--royal-blue);
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(201, 178, 106, 0.15);
+}
+
+.category-bar::-webkit-scrollbar {
+  display: none; /* hides scrollbar on Chrome/Safari */
+}
+
+.category-chip {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: 0 2px;
+  color: var(--lavender);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.category-chip.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* -----------------------------------------------------
+   SECTION LABELS & TITLES
+   e.g. "CHEF'S MASTERPIECES" (label) above
+        "The Nawab's Signatures" (title)
+----------------------------------------------------- */
+.section-label {
+  display: block;
+  color: var(--lavender);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  color: var(--gold);
+  font-size: clamp(26px, 6vw, 40px);
+  margin-bottom: 20px;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid rgba(201, 178, 106, 0.2);
+  margin-bottom: 24px;
+}
+
+/* -----------------------------------------------------
+   DISH CARD
+----------------------------------------------------- */
+.dish-card {
+  background-color: var(--royal-blue-light);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dish-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.dish-name {
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dish-description {
+  color: var(--desc-text);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.dish-price {
+  color: var(--gold);
+  font-size: 18px;
+  font-family: var(--font-heading);
+}
+
+.dish-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* AR button — square outline with diamond icon, stacked "VIEW IN AR" text */
+.ar-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 72px;
+  min-height: 72px;
+  border: 1.5px solid var(--gold);
+  border-radius: 6px;
+  color: var(--royal-blue);
+  background: linear-gradient(145deg, var(--gold-light), var(--gold));
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.4;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(201, 174, 108, 0.45);
+  transition: var(--transition);
+}
+
+.ar-button:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 8px rgba(201, 174, 108, 0.3);
+}
+
+@media (hover: hover) {
+  .ar-button:hover {
+    box-shadow: 0 0 20px rgba(201, 174, 108, 0.65);
+  }
+}
+
+.ar-button .ar-icon {
+  font-size: 16px;
+}
+
+/* Dish cards that have a real AR model get a subtle highlighted border/glow
+   so they're easy to spot while scanning the menu */
+.dish-card.has-ar {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(201, 174, 108, 0.25), 0 4px 18px rgba(201, 174, 108, 0.12);
+  position: relative;
+}
+
+.dish-card.has-ar::before {
+  content: "AR";
+  position: absolute;
+  top: -9px;
+  left: 18px;
+  background-color: var(--gold);
+  color: var(--royal-blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+
+/* -----------------------------------------------------
+   MENU PAGE — intro header
+----------------------------------------------------- */
+.menu-page-header {
+  padding: 44px 20px 8px;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.menu-page-title {
+  color: var(--gold);
+  font-size: clamp(30px, 8vw, 46px);
+  margin-bottom: 14px;
+}
+
+.menu-page-intro {
+  color: var(--desc-text);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* -----------------------------------------------------
+   MENU PAGE — section spacing + grid
+----------------------------------------------------- */
+.menu-main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.menu-section {
+  padding-top: 48px;
+  padding-bottom: 12px;
+  scroll-margin-top: 64px; /* keeps heading visible below sticky category bar when jumped to */
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* -----------------------------------------------------
+   MENU PAGE — Grand Platter special section
+----------------------------------------------------- */
+.platter-section {
+  background-color: var(--royal-blue-light);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 28px 22px;
+  margin-top: 20px;
+}
+
+.platter-subtitle {
+  color: var(--gold);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.platter-intro {
+  color: var(--desc-text);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.platter-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.platter-block-title {
+  color: var(--gold);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.platter-list {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.platter-list li {
+  color: var(--off-white);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* -----------------------------------------------------
+   MENU PAGE — Chef's Recommendation pills
+----------------------------------------------------- */
+.rec-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.rec-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* -----------------------------------------------------
+   AR PREVIEW MODAL
+----------------------------------------------------- */
+.ar-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.75);
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.ar-modal.active {
+  display: flex;
+}
+
+.ar-modal-inner {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--royal-blue-light);
+  border: 1px solid var(--card-border);
+  border-radius: 16px 16px 0 0;
+  padding: 20px;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.ar-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--off-white);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.ar-modal-title {
+  color: var(--gold);
+  font-size: 20px;
+  margin-bottom: 14px;
+  padding-right: 40px;
+}
+
+.ar-launch-button {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(145deg, var(--gold-light), var(--gold));
+  color: var(--royal-blue);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 0 14px rgba(201, 174, 108, 0.45);
+}
+
+.ar-modal-hint {
+  color: var(--desc-text);
+  font-size: 12px;
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* -----------------------------------------------------
+   CONTACT PAGE
+----------------------------------------------------- */
+.contact-page-header {
+  padding: 44px 20px 8px;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-page-title {
+  color: var(--gold);
+  font-size: clamp(30px, 8vw, 46px);
+  margin-bottom: 14px;
+}
+
+.contact-page-intro {
+  color: var(--desc-text);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.contact-layout {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 36px 20px 60px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.contact-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contact-info-item h3 {
+  color: var(--gold);
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.contact-info-item p,
+.contact-info-item a {
+  color: var(--off-white);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.contact-info-item a {
+  display: block;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background-color: var(--royal-blue-light);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 24px 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  color: var(--lavender);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  min-height: var(--tap-target);
+  padding: 12px 14px;
+  background-color: var(--royal-blue);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  color: var(--off-white);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(245, 241, 232, 0.35);
+}
+
+.form-submit-note {
+  color: var(--desc-text);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* -----------------------------------------------------
+   8. FOOTER
+----------------------------------------------------- */
+.site-footer {
+  background-color: var(--royal-blue);
+  color: var(--off-white);
+  padding: 50px 20px calc(26px + env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+.footer-brand h3 {
+  color: var(--gold);
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  color: var(--off-white);
+  opacity: 0.85;
+  margin-bottom: 26px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--off-white);
+}
+
+.footer-links a:active {
+  color: var(--gold);
+}
+
+.footer-copyright {
+  font-size: 11px;
+  color: var(--off-white);
+  opacity: 0.5;
+}
+
+/* -----------------------------------------------------
+   9. ANIMATIONS
+----------------------------------------------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-triggered fade-in (paired with IntersectionObserver in script.js) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

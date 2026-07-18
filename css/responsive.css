@@ -1,0 +1,114 @@
+/* =====================================================
+   RESPONSIVE.CSS — Mobile-first scale-up rules
+   Base styles in style.css already target phones.
+   These media queries ADD/ADJUST styles for bigger screens.
+   ===================================================== */
+
+/* -----------------------------------------------------
+   SMALL PHONES (375px and under)
+   e.g. iPhone SE, older/budget Android devices.
+   Everything in style.css already works here since it's
+   mobile-first, but we tighten a few things slightly.
+----------------------------------------------------- */
+@media (max-width: 375px) {
+  .hero-title {
+    letter-spacing: 1px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 24px;
+    font-size: 12px;
+  }
+
+  .dish-card {
+    padding: 18px;
+  }
+
+  .ar-button {
+    min-width: 64px;
+    min-height: 64px;
+  }
+}
+
+/* -----------------------------------------------------
+   TABLET AND UP (768px+)
+----------------------------------------------------- */
+@media (min-width: 768px) {
+  :root {
+    --section-padding: 90px 24px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .navbar {
+    padding: 16px 32px;
+  }
+
+  .nav-logo img {
+    height: 50px;
+  }
+
+  .category-bar {
+    top: 0;
+    padding: 16px 32px;
+    justify-content: center;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .platter-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero {
+    padding-top: 50px;
+  }
+}
+
+/* -----------------------------------------------------
+   DESKTOP AND UP (1024px+)
+----------------------------------------------------- */
+@media (min-width: 1024px) {
+
+  .navbar {
+    padding: 10px 40px;
+  }
+
+  .nav-links {
+    gap: 40px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .hero-title {
+    letter-spacing: 4px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 16px 40px;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+}
+
+/* -----------------------------------------------------
+   LARGE DESKTOP (1440px+)
+   Optional extra breathing room on very large screens.
+----------------------------------------------------- */
+@media (min-width: 1440px) {
+  :root {
+    --section-padding: 120px 24px;
+  }
+}
