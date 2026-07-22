@@ -14,6 +14,10 @@
 
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- model-viewer library is loaded lazily via script.js, only after the
+       page finishes rendering, so it never slows down initial page load -->
+  <link rel="preconnect" href="https://ajax.googleapis.com" />
 </head>
 <body id="top">
 
@@ -931,6 +935,28 @@
 
     <p class="footer-copyright">&copy; 2026 The Nawabs From North. All Rights Reserved.</p>
   </footer>
+
+  <!-- ============================= -->
+  <!-- AR PREVIEW MODAL               -->
+  <!-- Opens when any "View in AR" button is tapped. -->
+  <!-- ============================= -->
+  <div class="ar-modal" id="arModal">
+    <div class="ar-modal-inner">
+      <button class="ar-modal-close" id="arModalClose" aria-label="Close AR preview">&times;</button>
+      <h3 class="ar-modal-title" id="arModalTitle">Dish Name</h3>
+      <model-viewer
+        id="arModelViewer"
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+        camera-controls
+        auto-rotate
+        shadow-intensity="1"
+        style="width: 100%; height: 320px; background-color: #12172E; border-radius: 10px;">
+        <button slot="ar-button" class="ar-launch-button">View on Your Table</button>
+      </model-viewer>
+      <p class="ar-modal-hint">Drag to rotate &middot; Pinch to zoom &middot; Tap "View on Your Table" to place in AR</p>
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>
